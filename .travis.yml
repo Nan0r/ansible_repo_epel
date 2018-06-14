@@ -14,7 +14,9 @@ before_install:
   - sudo docker pull nan0r/docker_centos_ansible
 
 install:
- - sudo docker run --privileged -d -v Nan0r/ansible_repo_epel/:/root/ansible_repo_epel:rw --name ansible docker.io/nan0r/docker_centos_ansible /usr/sbin/init
+ - pwd
+ - docker run --privileged -d -v ~/Nan0r/ansible_repo_epel/:/root/ansible_repo_epel:rw --name ansible docker.io/nan0r/docker_centos_ansible /usr/sbin/init
+ - docker ps -a 
 
 before_script:
  - sudo docker logs ansible
