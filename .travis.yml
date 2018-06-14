@@ -18,6 +18,7 @@ install:
 
 before_script:
  - docker logs ansible
+ - ls -als /root/
  - docker exec -it ansible ls -als /root/ansible_repo_epel/
 
 script:
