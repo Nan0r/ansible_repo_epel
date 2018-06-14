@@ -18,7 +18,7 @@ install:
 
 before_script:
  - docker logs ansible
- - docker exec -it ansible /bin/bash -c "echo 'roles_path = /root/ansible_repo_epel/roles' >> /etc/ansible/ansible.cfg"
+ - docker exec -it ansible ls -als /root/
 
 script:
  # Run tests in Container
