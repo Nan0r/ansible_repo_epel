@@ -28,8 +28,7 @@ script:
  # Run tests in Container
  - sudo docker exec -it ansible /bin/bash -c "ansible-playbook -i /root/ansible_repo_epel/tests/inventory /root/ansible_repo_epel/tests/test.yml --syntax-check"
  - sudo docker exec -it ansible /bin/bash -c "ansible-playbook -i /root/ansible_repo_epel/tests/inventory /root/ansible_repo_epel/tests/test.yml --connection=local --sudo"
- - sudo docker exec -it ansible /bin/bash -c "ansible-playbook -i /root/ansible_repo_epel/tests/inventory /root/ansible_repo_epel/tests/test.yml --connection=local --sudo | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test:fail' && exit 1)"
- - sudo docker exec -it ansible /bin/bash -c "ansible-playbook -i /root/ansible_repo_epel/tests/inventory /root/ansible_repo_epel/tests/test.yml --connection=local --sudo | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test:fail' && exit 1)"
+ - sudo docker exec -it ansible /bin/bash -c "ansible-playbook -i /root/ansible_repo_epel/tests/inventory /root/ansible_repo_epel/tests/test.yml --connection=local --sudo | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test:pass' && exit 0) || (echo 'Idempotence test:fail' && exit 1)"
  - sudo docker exec -it ansible /bin/bash -c "yum repolist |grep -q 'epel' && (echo 'epel is present in yum repolist' && exit 0) || (echo 'epel is not present in yum repolist' && exit 1)"
 
 after_script:
