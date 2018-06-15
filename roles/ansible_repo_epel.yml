@@ -1,7 +1,6 @@
 ---
 - hosts: all
   sudo: yes
-
   tasks:
   - name: adding epel repository on redhat like operating system
     yum:
